@@ -74,7 +74,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_length_is_shorter_than_5_letters_returns_1_string()
         {
-            IEnumerable<string> result = TestData.Animals;
+            IEnumerable<string> result = TestData.Animals.Where(a => a.Length < 5);
 
             Assert.AreEqual(1, result.Count());
         }
@@ -82,7 +82,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_length_is_9_returns_expected_strings()
         {
-            IEnumerable<string> result = TestData.Animals;
+            IEnumerable<string> result = TestData.Animals.Where(a => a.Length == 9);
 
             Assert.AreEqual(1, result.Count());
             Assert.IsTrue(new[] { "swordfish" }.SequenceEqual(result));
@@ -91,7 +91,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_starts_with_s()
         {
-            IEnumerable<string> result = TestData.Animals;
+            IEnumerable<string> result = TestData.Animals.Where(a => a.Substring(0, 1).Equals("s")); ;
 
             Assert.IsTrue(new[] { "swordfish", "shark" }.SequenceEqual(result));
         }
@@ -99,7 +99,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_has_i_as_a_second_letter()
         {
-            IEnumerable<string> result = TestData.Animals;
+            IEnumerable<string> result = TestData.Animals.Where(a => a.Substring(1, 1).Equals("i"));
 
             Assert.IsTrue(new[] { "tiger", "lion" }.SequenceEqual(result));
         }
